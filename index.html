@@ -1,0 +1,1934 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>ALPHABET</title>
+
+<style>
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --bg: #f4f4f6;
+  --card: #ffffff;
+  --text: #111111;
+  --muted: #777777;
+  --border: #e5e5e7;
+  --accent: #111111;
+  --danger: #d92d3d;
+  --success: #16844a;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-family: inherit;
+  touch-action: manipulation;
+}
+
+.app {
+  width: 100%;
+  max-width: 520px;
+  min-height: 100vh;
+  padding:
+    calc(16px + env(safe-area-inset-top))
+    15px
+    calc(18px + env(safe-area-inset-bottom));
+
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* =========================
+   ACCUEIL
+========================= */
+
+.screen {
+  width: 100%;
+  animation: appear .25s ease;
+}
+
+.home {
+  margin: auto 0;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo-mark {
+  width: 62px;
+  height: 62px;
+  margin: 0 auto 18px;
+
+  border-radius: 18px;
+  background: #111;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 43px;
+  letter-spacing: -2px;
+  font-weight: 850;
+}
+
+.logo p {
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 18px;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.04);
+}
+
+.section-title {
+  margin: 0 0 13px;
+  color: #777;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.mode-list {
+  display: grid;
+  gap: 9px;
+}
+
+.mode-button {
+  width: 100%;
+  min-height: 62px;
+
+  padding: 12px 15px;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  background: #fff;
+  color: #111;
+
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  text-align: left;
+
+  transition: transform .1s, background .1s;
+}
+
+.mode-button:active {
+  transform: scale(.97);
+  background: #f1f1f2;
+}
+
+.mode-icon {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 11px;
+
+  background: #f0f0f2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 19px;
+}
+
+.mode-info {
+  flex: 1;
+}
+
+.mode-name {
+  display: block;
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.mode-description {
+  display: block;
+  margin-top: 3px;
+
+  color: #888;
+  font-size: 12px;
+}
+
+.arrow {
+  color: #aaa;
+  font-size: 20px;
+}
+
+
+/* =========================
+   CONFIGURATION
+========================= */
+
+.config-title {
+  text-align: center;
+  margin: 10px 0 24px;
+}
+
+.config-title h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.config-title p {
+  margin: 7px 0 0;
+  color: #777;
+  font-size: 14px;
+}
+
+.player-selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.player-select {
+  height: 52px;
+
+  border: 1px solid var(--border);
+  border-radius: 13px;
+
+  background: white;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.player-select.active {
+  background: #111;
+  color: white;
+  border-color: #111;
+}
+
+.primary {
+  width: 100%;
+  height: 58px;
+
+  border: 0;
+  border-radius: 14px;
+
+  background: #111;
+  color: white;
+
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.secondary {
+  width: 100%;
+  height: 50px;
+
+  margin-top: 9px;
+
+  border: 1px solid var(--border);
+  border-radius: 13px;
+
+  background: white;
+  color: #222;
+
+  font-size: 15px;
+  font-weight: 650;
+}
+
+
+/* =========================
+   JEU
+========================= */
+
+.game-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.game-title {
+  font-size: 23px;
+  font-weight: 850;
+  letter-spacing: -.7px;
+}
+
+.mode-badge {
+  padding: 7px 10px;
+
+  border-radius: 20px;
+
+  background: #fff;
+  border: 1px solid var(--border);
+
+  color: #666;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.turn-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+
+  padding: 14px;
+  margin-bottom: 10px;
+
+  text-align: center;
+}
+
+.turn-label {
+  color: #888;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+#turn {
+  margin-top: 4px;
+  font-size: 26px;
+  font-weight: 850;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+
+  margin-bottom: 12px;
+}
+
+.stat {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+
+  padding: 8px;
+  text-align: center;
+}
+
+.stat-label {
+  color: #888;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.stat-value {
+  margin-top: 2px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.timer {
+  height: 6px;
+  margin-bottom: 12px;
+
+  background: #e6e6e8;
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.timer-bar {
+  height: 100%;
+  width: 100%;
+
+  background: #111;
+
+  transform-origin: left;
+}
+
+.instruction {
+  text-align: center;
+
+  margin: 0 0 10px;
+
+  color: #888;
+  font-size: 13px;
+}
+
+.event {
+  min-height: 38px;
+
+  margin-bottom: 10px;
+  padding: 9px 12px;
+
+  border-radius: 12px;
+
+  background: #fff;
+  border: 1px solid var(--border);
+
+  text-align: center;
+
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.event:empty {
+  display: none;
+}
+
+
+/* =========================
+   ALPHABET
+========================= */
+
+.alphabet {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 7px;
+}
+
+.letter {
+  aspect-ratio: 1;
+
+  border: 1px solid #dedee1;
+  border-radius: 13px;
+
+  background: #fff;
+  color: #111;
+
+  font-size: clamp(24px, 8vw, 34px);
+  font-weight: 800;
+
+  box-shadow: 0 2px 4px rgba(0,0,0,.04);
+
+  transition:
+    transform .08s,
+    background .08s;
+}
+
+.letter:active {
+  transform: scale(.91);
+  background: #ececef;
+}
+
+
+/* =========================
+   FIN
+========================= */
+
+.end {
+  margin: auto 0;
+  text-align: center;
+}
+
+.end-icon {
+  font-size: 65px;
+  margin-bottom: 15px;
+}
+
+.end h2 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: -1px;
+}
+
+.end-subtitle {
+  margin: 8px 0 25px;
+  color: #777;
+}
+
+.result-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.result-line {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 8px 0;
+
+  border-bottom: 1px solid #eee;
+
+  font-size: 14px;
+}
+
+.result-line:last-child {
+  border-bottom: 0;
+}
+
+.result-value {
+  font-weight: 800;
+}
+
+.end button {
+  width: 100%;
+  height: 58px;
+
+  border: 0;
+  border-radius: 14px;
+
+  background: #111;
+  color: white;
+
+  font-size: 17px;
+  font-weight: 750;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shake {
+  animation: shake .25s ease;
+}
+
+@keyframes shake {
+  0%,100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-7px);
+  }
+
+  75% {
+    transform: translateX(7px);
+  }
+}
+
+
+/* =========================
+   PETITS ÉCRANS
+========================= */
+
+@media (max-height: 700px) {
+
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  .logo-mark {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+  }
+
+  .logo h1 {
+    font-size: 36px;
+  }
+
+  .mode-button {
+    min-height: 55px;
+  }
+
+  .letter {
+    border-radius: 10px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+<!-- =========================
+     ACCUEIL
+========================= -->
+
+<section id="home" class="screen home">
+
+  <div class="logo">
+
+    <div class="logo-mark">
+      A
+    </div>
+
+    <h1>ALPHABET</h1>
+
+    <p>
+      Mémoire. Réflexe. Pression.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <p class="section-title">
+      Choisir un mode
+    </p>
+
+    <div class="mode-list">
+
+
+      <button
+        class="mode-button"
+        onclick="selectMode('classic')"
+      >
+
+        <div class="mode-icon">
+          A
+        </div>
+
+        <div class="mode-info">
+
+          <span class="mode-name">
+            Classique
+          </span>
+
+          <span class="mode-description">
+            Une lettre répétée et tu es éliminé.
+          </span>
+
+        </div>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </button>
+
+
+      <button
+        class="mode-button"
+        onclick="selectMode('chrono')"
+      >
+
+        <div class="mode-icon">
+          ⏱
+        </div>
+
+        <div class="mode-info">
+
+          <span class="mode-name">
+            Chrono
+          </span>
+
+          <span class="mode-description">
+            Choisis avant la fin du temps.
+          </span>
+
+        </div>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </button>
+
+
+      <button
+        class="mode-button"
+        onclick="selectMode('survival')"
+      >
+
+        <div class="mode-icon">
+          ♥
+        </div>
+
+        <div class="mode-info">
+
+          <span class="mode-name">
+            Survie
+          </span>
+
+          <span class="mode-description">
+            3 vies par joueur.
+          </span>
+
+        </div>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </button>
+
+
+      <button
+        class="mode-button"
+        onclick="selectMode('oneChance')"
+      >
+
+        <div class="mode-icon">
+          !
+        </div>
+
+        <div class="mode-info">
+
+          <span class="mode-name">
+            1 chance
+          </span>
+
+          <span class="mode-description">
+            Une erreur et la partie s'arrête.
+          </span>
+
+        </div>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </button>
+
+
+      <button
+        class="mode-button"
+        onclick="selectMode('inverse')"
+      >
+
+        <div class="mode-icon">
+          ↔
+        </div>
+
+        <div class="mode-info">
+
+          <span class="mode-name">
+            Inversé
+          </span>
+
+          <span class="mode-description">
+            L'ordre des joueurs change.
+          </span>
+
+        </div>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </button>
+
+
+      <button
+        class="mode-button"
+        onclick="selectMode('challenge')"
+      >
+
+        <div class="mode-icon">
+          ★
+        </div>
+
+        <div class="mode-info">
+
+          <span class="mode-name">
+            Défis
+          </span>
+
+          <span class="mode-description">
+            Une contrainte apparaît pendant la partie.
+          </span>
+
+        </div>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </button>
+
+
+      <button
+        class="mode-button"
+        onclick="selectMode('quick')"
+      >
+
+        <div class="mode-icon">
+          ⚡
+        </div>
+
+        <div class="mode-info">
+
+          <span class="mode-name">
+            Partie rapide
+          </span>
+
+          <span class="mode-description">
+            Une partie courte et intense.
+          </span>
+
+        </div>
+
+        <span class="arrow">
+          ›
+        </span>
+
+      </button>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONFIGURATION
+========================= -->
+
+<section
+  id="config"
+  class="screen hidden"
+>
+
+  <div class="config-title">
+
+    <h2 id="configMode">
+      Classique
+    </h2>
+
+    <p id="configDescription">
+      Choisis les joueurs.
+    </p>
+
+  </div>
+
+
+  <div class="card">
+
+    <p class="section-title">
+      Joueurs
+    </p>
+
+    <div class="player-selector">
+
+      <button
+        id="players2"
+        class="player-select active"
+        onclick="setPlayers(2)"
+      >
+        2
+      </button>
+
+      <button
+        id="players3"
+        class="player-select"
+        onclick="setPlayers(3)"
+      >
+        3
+      </button>
+
+      <button
+        id="players4"
+        class="player-select"
+        onclick="setPlayers(4)"
+      >
+        4
+      </button>
+
+    </div>
+
+
+    <button
+      class="primary"
+      onclick="startGame()"
+    >
+      Commencer
+    </button>
+
+    <button
+      class="secondary"
+      onclick="backHome()"
+    >
+      Retour
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     JEU
+========================= -->
+
+<section
+  id="game"
+  class="screen hidden"
+>
+
+  <div class="game-header">
+
+    <div class="game-title">
+      ALPHABET
+    </div>
+
+    <div
+      id="modeBadge"
+      class="mode-badge"
+    >
+      CLASSIQUE
+    </div>
+
+  </div>
+
+
+  <div class="turn-card">
+
+    <div class="turn-label">
+      Au tour de
+    </div>
+
+    <div id="turn">
+      Joueur 1
+    </div>
+
+  </div>
+
+
+  <div class="stats-row">
+
+    <div class="stat">
+
+      <div class="stat-label">
+        Score
+      </div>
+
+      <div
+        id="score"
+        class="stat-value"
+      >
+        0
+      </div>
+
+    </div>
+
+
+    <div class="stat">
+
+      <div class="stat-label">
+        Lettres
+      </div>
+
+      <div
+        id="lettersCount"
+        class="stat-value"
+      >
+        0
+      </div>
+
+    </div>
+
+
+    <div class="stat">
+
+      <div class="stat-label">
+        Vies
+      </div>
+
+      <div
+        id="lives"
+        class="stat-value"
+      >
+        ∞
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div
+    id="timerContainer"
+    class="timer hidden"
+  >
+
+    <div
+      id="timerBar"
+      class="timer-bar"
+    ></div>
+
+  </div>
+
+
+  <div
+    id="event"
+    class="event"
+  ></div>
+
+
+  <p class="instruction">
+    Choisis une lettre
+  </p>
+
+
+  <div
+    id="alphabet"
+    class="alphabet"
+  ></div>
+
+</section>
+
+
+<!-- =========================
+     FIN
+========================= -->
+
+<section
+  id="end"
+  class="screen end hidden"
+>
+
+  <div class="end-icon">
+    🏆
+  </div>
+
+  <h2 id="endTitle">
+    Partie terminée
+  </h2>
+
+  <p
+    id="endSubtitle"
+    class="end-subtitle"
+  >
+    Bien joué.
+  </p>
+
+
+  <div class="result-card">
+
+    <div class="result-line">
+
+      <span>
+        Score
+      </span>
+
+      <span
+        id="finalScore"
+        class="result-value"
+      >
+        0
+      </span>
+
+    </div>
+
+
+    <div class="result-line">
+
+      <span>
+        Lettres jouées
+      </span>
+
+      <span
+        id="finalLetters"
+        class="result-value"
+      >
+        0
+      </span>
+
+    </div>
+
+
+    <div class="result-line">
+
+      <span>
+        Niveau
+      </span>
+
+      <span
+        id="finalLevel"
+        class="result-value"
+      >
+        1
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <button onclick="backHome()">
+    Retour au menu
+  </button>
+
+</section>
+
+
+</div>
+
+
+<script>
+
+/* =========================================
+   CONFIGURATION
+========================================= */
+
+const letters =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+
+const modes = {
+
+  classic: {
+    name: "Classique",
+    badge: "CLASSIQUE",
+    description:
+      "Une lettre répétée et tu es éliminé."
+  },
+
+  chrono: {
+    name: "Chrono",
+    badge: "CHRONO",
+    description:
+      "Tu dois choisir rapidement."
+  },
+
+  survival: {
+    name: "Survie",
+    badge: "SURVIE",
+    description:
+      "Chaque joueur possède 3 vies."
+  },
+
+  oneChance: {
+    name: "1 chance",
+    badge: "1 CHANCE",
+    description:
+      "Une erreur termine ta partie."
+  },
+
+  inverse: {
+    name: "Inversé",
+    badge: "INVERSÉ",
+    description:
+      "L'ordre des joueurs change."
+  },
+
+  challenge: {
+    name: "Défis",
+    badge: "DÉFIS",
+    description:
+      "Des contraintes apparaissent."
+  },
+
+  quick: {
+    name: "Partie rapide",
+    badge: "RAPIDE",
+    description:
+      "Une partie courte et intense."
+  }
+
+};
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+let selectedMode = "classic";
+
+let players = 2;
+
+let currentPlayer = 1;
+
+let usedLetters = [];
+
+let score = 0;
+
+let totalLetters = 0;
+
+let lives = {
+  1: 3,
+  2: 3,
+  3: 3,
+  4: 3
+};
+
+let timer = null;
+
+let timeLeft = 0;
+
+let currentChallenge = null;
+
+let direction = 1;
+
+let gameEnded = false;
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+function show(id) {
+
+  document
+    .querySelectorAll(".screen")
+    .forEach(screen => {
+
+      screen.classList.add("hidden");
+
+    });
+
+  document
+    .getElementById(id)
+    .classList.remove("hidden");
+
+}
+
+
+function selectMode(mode) {
+
+  selectedMode = mode;
+
+  document
+    .getElementById("configMode")
+    .textContent =
+    modes[mode].name;
+
+  document
+    .getElementById("configDescription")
+    .textContent =
+    modes[mode].description;
+
+  show("config");
+
+}
+
+
+function backHome() {
+
+  clearInterval(timer);
+
+  gameEnded = true;
+
+  show("home");
+
+}
+
+
+/* =========================================
+   JOUEURS
+========================================= */
+
+function setPlayers(number) {
+
+  players = number;
+
+  document
+    .querySelectorAll(".player-select")
+    .forEach(button => {
+
+      button.classList.remove("active");
+
+    });
+
+  document
+    .getElementById(
+      "players" + number
+    )
+    .classList.add("active");
+
+}
+
+
+/* =========================================
+   DÉMARRAGE
+========================================= */
+
+function startGame() {
+
+  currentPlayer = 1;
+
+  usedLetters = [];
+
+  score = 0;
+
+  totalLetters = 0;
+
+  direction = 1;
+
+  gameEnded = false;
+
+  currentChallenge = null;
+
+  lives = {
+    1: 3,
+    2: 3,
+    3: 3,
+    4: 3
+  };
+
+
+  document
+    .getElementById("modeBadge")
+    .textContent =
+    modes[selectedMode].badge;
+
+
+  document
+    .getElementById("event")
+    .textContent = "";
+
+
+  createAlphabet();
+
+  show("game");
+
+  updateGame();
+
+
+  if (
+    selectedMode === "chrono" ||
+    selectedMode === "quick"
+  ) {
+
+    startTimer();
+
+  }
+
+}
+
+
+/* =========================================
+   ALPHABET
+========================================= */
+
+function createAlphabet() {
+
+  const container =
+    document.getElementById("alphabet");
+
+  container.innerHTML = "";
+
+
+  letters.forEach(letter => {
+
+    const button =
+      document.createElement("button");
+
+    button.className = "letter";
+
+    button.textContent = letter;
+
+    button.onclick = () => {
+
+      chooseLetter(letter);
+
+    };
+
+    container.appendChild(button);
+
+  });
+
+}
+
+
+/* =========================================
+   CHOIX D'UNE LETTRE
+========================================= */
+
+function chooseLetter(letter) {
+
+  if (gameEnded) return;
+
+
+  /*
+    LETTRE DÉJÀ UTILISÉE
+  */
+
+  if (usedLetters.includes(letter)) {
+
+    handleMistake();
+
+    return;
+
+  }
+
+
+  /*
+    DÉFI ACTIF
+  */
+
+  if (
+    currentChallenge &&
+    !checkChallenge(letter)
+  ) {
+
+    showEvent(
+      "❌ Cette lettre ne respecte pas le défi."
+    );
+
+    return;
+
+  }
+
+
+  /*
+    LETTRE VALIDÉE
+  */
+
+  usedLetters.push(letter);
+
+  totalLetters++;
+
+  score += calculatePoints(letter);
+
+
+  /*
+    ÉVÉNEMENTS
+  */
+
+  if (
+    totalLetters % 5 === 0
+  ) {
+
+    triggerRandomEvent();
+
+  }
+
+
+  /*
+    CHANGEMENT DE JOUEUR
+  */
+
+  nextPlayer();
+
+
+  /*
+    CHRONO
+  */
+
+  if (
+    selectedMode === "chrono" ||
+    selectedMode === "quick"
+  ) {
+
+    startTimer();
+
+  }
+
+
+  /*
+    VICTOIRE
+  */
+
+  if (usedLetters.length >= 26) {
+
+    finishGame(
+      "🏆 Alphabet terminé !"
+    );
+
+  }
+
+
+  updateGame();
+
+}
+
+
+/* =========================================
+   ERREUR
+========================================= */
+
+function handleMistake() {
+
+  const currentLives =
+    lives[currentPlayer];
+
+
+  if (
+    selectedMode === "survival"
+  ) {
+
+    lives[currentPlayer]--;
+
+    if (
+      lives[currentPlayer] <= 0
+    ) {
+
+      finishGame(
+        "💥 Joueur " +
+        currentPlayer +
+        " éliminé"
+      );
+
+      return;
+
+    }
+
+    showEvent(
+      "❤️ Joueur " +
+      currentPlayer +
+      " perd une vie."
+    );
+
+    nextPlayer();
+
+    return;
+
+  }
+
+
+  finishGame(
+    "💥 Joueur " +
+    currentPlayer +
+    " éliminé"
+  );
+
+}
+
+
+/* =========================================
+   JOUEUR SUIVANT
+========================================= */
+
+function nextPlayer() {
+
+  if (
+    selectedMode === "inverse"
+  ) {
+
+    direction *= -1;
+
+  }
+
+
+  currentPlayer += direction;
+
+
+  if (currentPlayer > players) {
+
+    currentPlayer = 1;
+
+  }
+
+
+  if (currentPlayer < 1) {
+
+    currentPlayer = players;
+
+  }
+
+}
+
+
+/* =========================================
+   POINTS
+========================================= */
+
+function calculatePoints(letter) {
+
+  let points = 1;
+
+
+  /*
+    Lettres rares
+  */
+
+  if (
+    ["K","W","X","Y","Z"].includes(letter)
+  ) {
+
+    points += 2;
+
+  }
+
+
+  /*
+    Mode rapide
+  */
+
+  if (
+    selectedMode === "quick"
+  ) {
+
+    points += 1;
+
+  }
+
+
+  return points;
+
+}
+
+
+/* =========================================
+   DÉFIS
+========================================= */
+
+function createChallenge() {
+
+  const challenges = [
+
+    {
+      text: "Défi : choisis une voyelle.",
+      check: letter =>
+        "AEIOUY".includes(letter)
+    },
+
+    {
+      text: "Défi : choisis une consonne.",
+      check: letter =>
+        !"AEIOUY".includes(letter)
+    },
+
+    {
+      text: "Défi : choisis une lettre de A à M.",
+      check: letter =>
+        letter <= "M"
+    },
+
+    {
+      text: "Défi : choisis une lettre de N à Z.",
+      check: letter =>
+        letter >= "N"
+    }
+
+  ];
+
+
+  return challenges[
+    Math.floor(
+      Math.random() *
+      challenges.length
+    )
+  ];
+
+}
+
+
+function checkChallenge(letter) {
+
+  if (!currentChallenge) {
+    return true;
+  }
+
+  return currentChallenge.check(letter);
+
+}
+
+
+/* =========================================
+   ÉVÉNEMENTS
+========================================= */
+
+function triggerRandomEvent() {
+
+  if (
+    selectedMode !== "challenge" &&
+    Math.random() > 0.55
+  ) {
+
+    return;
+
+  }
+
+
+  const events = [
+
+    "⭐ Prochain choix : +2 points.",
+
+    "⚡ Le prochain joueur doit jouer rapidement.",
+
+    "🎯 Nouveau défi !",
+
+    "🔄 L'ordre des joueurs est inversé."
+
+  ];
+
+
+  const event =
+    events[
+      Math.floor(
+        Math.random() *
+        events.length
+      )
+    ];
+
+
+  showEvent(event);
+
+
+  if (
+    event.includes("défi")
+  ) {
+
+    currentChallenge =
+      createChallenge();
+
+    showEvent(
+      currentChallenge.text
+    );
+
+  }
+
+
+  if (
+    event.includes("inversé")
+  ) {
+
+    direction *= -1;
+
+  }
+
+}
+
+
+function showEvent(text) {
+
+  document
+    .getElementById("event")
+    .textContent = text;
+
+}
+
+
+/* =========================================
+   CHRONO
+========================================= */
+
+function startTimer() {
+
+  clearInterval(timer);
+
+
+  timeLeft =
+    selectedMode === "quick"
+      ? 5
+      : Math.max(
+          3,
+          8 - Math.floor(
+            totalLetters / 5
+          )
+        );
+
+
+  updateTimer();
+
+
+  timer = setInterval(() => {
+
+    timeLeft--;
+
+    updateTimer();
+
+
+    if (timeLeft <= 0) {
+
+      clearInterval(timer);
+
+      finishGame(
+        "⏱️ Temps écoulé !"
+      );
+
+    }
+
+  }, 1000);
+
+}
+
+
+function updateTimer() {
+
+  const container =
+    document.getElementById(
+      "timerContainer"
+    );
+
+  const bar =
+    document.getElementById(
+      "timerBar"
+    );
+
+
+  if (
+    selectedMode !== "chrono" &&
+    selectedMode !== "quick"
+  ) {
+
+    container.classList.add("hidden");
+
+    return;
+
+  }
+
+
+  container.classList.remove("hidden");
+
+
+  const maxTime =
+    selectedMode === "quick"
+      ? 5
+      : Math.max(
+          3,
+          8 - Math.floor(
+            totalLetters / 5
+          )
+        );
+
+
+  bar.style.width =
+    Math.max(
+      0,
+      (timeLeft / maxTime) * 100
+    ) + "%";
+
+}
+
+
+/* =========================================
+   INTERFACE
+========================================= */
+
+function updateGame() {
+
+  document
+    .getElementById("turn")
+    .textContent =
+    "Joueur " + currentPlayer;
+
+
+  document
+    .getElementById("score")
+    .textContent =
+    score;
+
+
+  document
+    .getElementById("lettersCount")
+    .textContent =
+    totalLetters;
+
+
+  if (
+    selectedMode === "survival"
+  ) {
+
+    document
+      .getElementById("lives")
+      .textContent =
+      "❤️".repeat(
+        lives[currentPlayer]
+      );
+
+  } else {
+
+    document
+      .getElementById("lives")
+      .textContent =
+      "∞";
+
+  }
+
+}
+
+
+/* =========================================
+   FIN DE PARTIE
+========================================= */
+
+function finishGame(message) {
+
+  if (gameEnded) return;
+
+  gameEnded = true;
+
+  clearInterval(timer);
+
+
+  document
+    .getElementById("endTitle")
+    .textContent =
+    message;
+
+
+  document
+    .getElementById("endSubtitle")
+    .textContent =
+    "Partie terminée";
+
+
+  document
+    .getElementById("finalScore")
+    .textContent =
+    score;
+
+
+  document
+    .getElementById("finalLetters")
+    .textContent =
+    totalLetters;
+
+
+  document
+    .getElementById("finalLevel")
+    .textContent =
+    calculateLevel();
+
+
+  show("end");
+
+}
+
+
+function calculateLevel() {
+
+  return Math.max(
+    1,
+    Math.floor(score / 10) + 1
+  );
+
+}
+
+</script>
+
+</body>
+</html>
